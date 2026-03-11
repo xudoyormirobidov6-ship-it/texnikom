@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="EduSphere Academy - 2026 yil eng yaxshi onlayn ta'lim platformasi. Dasturlash, Grafik Dizayn, 3D Modeling va Kompyuter Savodxonligi kurslari.">
+    <title>EduSphere Academy | 2026</title>
+    <style>
+        :root { --neon: #00f2ff; --purple: #bc13fe; --dark: #030712; }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
+        body { background: var(--dark); color: white; overflow-x: hidden; }
+
+        /* NAVBAR */
+        nav {
+            padding: 15px 5%; display: flex; justify-content: space-between; align-items: center;
+            background: rgba(3, 7, 18, 0.9); border-bottom: 2px solid var(--neon);
+            position: sticky; top: 0; z-index: 1000;
+        }
+        .logo { font-size: 22px; font-weight: 900; color: var(--neon); text-shadow: 0 0 10px var(--neon); }
+
+        /* CONTAINER */
+        .container { padding: 20px 5%; }
+        .hero { text-align: center; padding: 40px 0; }
+        .hero h1 { font-size: 2rem; background: linear-gradient(to right, #fff, var(--purple)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; color: transparent; background-clip: text; }
+
+        /* GRID SYSTEM */
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+        .card {
+            background: rgba(255,255,255,0.05); padding: 30px; border-radius: 20px;
+            border: 1px solid rgba(255,255,255,0.1); text-align: center; transition: 0.3s; cursor: pointer;
+        }
+        .card:hover { transform: translateY(-5px); border-color: var(--neon); box-shadow: 0 0 15px rgba(0,242,255,0.2); }
+        .card h3 { color: var(--neon); margin-top: 10px; }
+
+        /* SUB-GRID (ICHKI BO'LIMLAR) */
+        .sub-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 15px; margin-top: 20px; }
+        .sub-card {
+            background: rgba(188, 19, 254, 0.1); padding: 15px; border-radius: 12px;
+            border: 1px solid var(--purple); cursor: pointer; transition: 0.2s;
+        }
+        .sub-card:hover { background: var(--purple); color: white; }
+
+        /* SECTIONS */
+        .page { display: none; animation: fadeIn 0.4s ease; }
+        .page.active { display: block; }
+
+        /* VIDEO */
+        .video-box { background: #111827; padding: 20px; border-radius: 25px; border: 2px solid var(--purple); max-width: 800px; margin: 20px auto; text-align: center; }
+        video { width: 100%; border-radius: 15px; border: 2px solid var(--neon); margin: 15px 0; background: #000; }
+
+        .btn-back { width: 100%; padding: 15px; background: #1e293b; border: none; border-radius: 12px; color: white; font-weight: bold; cursor: pointer; margin-top: 10px; }
+        
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+    </style>
+</head>
+<body>
+
+    <nav><div class="logo">EDUSPHERE ACADEMY</div></nav>
+
+    <div class="container">
+        
+        <div id="home-page" class="page active">
+            <div class="hero"><h1>O'quv Yo'nalishlari</h1></div>
+            <div class="grid">
+                <div class="card" onclick="showPage('coding-page')" tabindex="0" onkeypress="if(event.key==='Enter')showPage('coding-page')"><span>🚀</span><h3>Dasturlash</h3></div>
+                <div class="card" onclick="showPage('design-page')" tabindex="0" onkeypress="if(event.key==='Enter')showPage('design-page')"><span>🎨</span><h3>Grafik Dizayn</h3></div>
+                <div class="card" onclick="showPage('3d-page')" tabindex="0" onkeypress="if(event.key==='Enter')showPage('3d-page')"><span>📦</span><h3>3D Modeling</h3></div>
+                <div class="card" onclick="showPage('comp-lit')" tabindex="0" onkeypress="if(event.key==='Enter')showPage('comp-lit')"><span>⌨️</span><h3>Savodxonlik</h3></div>
+            </div>
+        </div>
+
+        <div id="coding-page" class="page">
+            <div class="hero"><h2>Dasturlash Tillari</h2></div>
+            <div class="sub-grid">
+                <div class="sub-card" onclick="playVid('python.mp4', 'Python')">1. Python</div>
+                <div class="sub-card" onclick="playVid('html.mp4', 'HTML')">2. HTML</div>
+                <div class="sub-card" onclick="playVid('css.mp4', 'CSS')">3. CSS</div>
+                <div class="sub-card" onclick="playVid('cpp.mp4', 'C++')">4. C++</div>
+                <div class="sub-card" onclick="playVid('javascript.mp4', 'JavaScript')">5. JavaScript</div>
+            </div>
+            <button class="btn-back" onclick="showPage('home-page')">⬅️ Orqaga</button>
+        </div>
+
+        <div id="design-page" class="page">
+            <div class="hero"><h2>Grafik Dizayn</h2></div>
+            <div class="sub-grid">
+                <div class="sub-card" onclick="playVid('photoshop.mp4', 'Adobe Photoshop')">1. Photoshop</div>
+                <div class="sub-card" onclick="playVid('illustrator.mp4', 'Adobe Illustrator')">2. Illustrator</div>
+                <div class="sub-card" onclick="playVid('xd.mp4', 'Adobe XD')">3. Adobe XD</div>
+                <div class="sub-card" onclick="playVid('figma.mp4', 'Figma')">4. Figma</div>
+            </div>
+            <button class="btn-back" onclick="showPage('home-page')">⬅️ Orqaga</button>
+        </div>
+
+        <div id="3d-page" class="page">
+            <div class="hero"><h2>3D Modeling</h2></div>
+            <div class="sub-grid">
+                <div class="sub-card" onclick="playVid('3dsmax.mp4', '3DS Max')">1. 3DS Max</div>
+                <div class="sub-card" onclick="playVid('coreldraw.mp4', 'Corel Draw')">2. Corel Draw</div>
+                <div class="sub-card" onclick="playVid('blender.mp4', 'Blender')">3. Blender</div>
+            </div>
+            <button class="btn-back" onclick="showPage('home-page')">⬅️ Orqaga</button>
+        </div>
+
+        <div id="comp-lit" class="page">
+            <div class="video-box">
+                <h2>Kompyuter Savodxonligi</h2>
+                <video controls id="main-video-player">
+                    <source src="KOMPYUTER_TARMOQLARI_VA_TURLARI____MAC_IP_DNS_ADDRESSLARI____INTERNET.mp4" type="video/mp4">
+                </video>
+                <button class="btn-back" onclick="showPage('home-page')">⬅️ Orqaga</button>
+            </div>
+        </div>
+
+        <div id="video-player-page" class="page">
+            <div class="video-box">
+                <h2 id="video-title">Darslik</h2>
+                <video controls id="dynamic-video" onerror="videoError()">
+                    <source src="#" type="video/mp4">
+                    <p>Video yuklanmadi. Iltimos, keyinroq urinib ko'ring.</p>
+                </video>
+                <button class="btn-back" onclick="goBackToCategory()">⬅️ Yo'nalishga qaytish</button>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        let lastPage = 'home-page';
+
+        function showPage(id) {
+            const page = document.getElementById(id);
+            if (!page) {
+                console.error('Page not found:', id);
+                return;
+            }
+            document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+            page.classList.add('active');
+            if(id !== 'video-player-page') lastPage = id;
+            // Videolarni to'xtatish
+            document.querySelectorAll('video').forEach(v => v.pause());
+        }
+
+        function playVid(src, title) {
+            const video = document.getElementById('dynamic-video');
+            const titleEl = document.getElementById('video-title');
+            if (!video || !titleEl) {
+                console.error('Video player elements not found');
+                return;
+            }
+            titleEl.innerText = title;
+            video.src = src;
+            showPage('video-player-page');
+            video.play().catch(e => console.log('Video playback prevented:', e));
+        }
+
+        function goBackToCategory() {
+            showPage(lastPage);
+        }
+
+        function videoError() {
+            alert('Video yuklashda xatolik yuz berdi. Iltimos, boshqa video tanab ko\'ring yoki internet aloqangizni tekshiring.');
+        }
+    </script>
+</body>
+</html>
