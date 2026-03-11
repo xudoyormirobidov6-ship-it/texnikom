@@ -1,0 +1,2 @@
+# texnikom
+parkenttumani_texnikumi
